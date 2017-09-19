@@ -84,6 +84,7 @@ print "Decryption complete, DEC(%s,%s) = %s"%(plaintext,key,ciphertext)
 ```
 ```
 zorro@Linux:~/Desktop/CTF/crypto$ $ python ./decrypt.py 
-Decryption complete, DEC(Bot kmws mikferuigmzf rmfrxrwqe abs perudsf! Nvm kda ut ab8bv_w4ue0_ab8v_DDU,T0pS3cre7key) = You hawe successfully decrypwed the message! The key is th4ts_w0rs3_th4n_DES
+Decryption complete, DEC(Bot kmws mikferuigmzf rmfrxrwqe abs perudsf! Nvm kda ut ab8bv_w4ue0_ab8v_DDU,T0pS3cre7key) =
+You hawe successfully decrypwed the message! The key is th4ts_w0rs3_th4n_DES
 ```
 **Answer:** th4ts_w0rs3_th4n_DES
