@@ -14,8 +14,6 @@
 
 ## Write-up
 
-Run encrypt.py: "Usage: D:\Downloads\encrypt.py SECRET_KEY PLAINTEXT"
-
 Quote:
 
 ```python
@@ -49,8 +47,26 @@ We can see rotate_amount is a real key. Encryption is add it, so decryption is s
 Make easy change:
 
 ```python
-plaintext = sys.argv[2]
+#!/usr/bin/env python
+import sys
 
+alphaL = "abcdefghijklnmopqrstuvqxyz"
+alphaU = "ABCDEFGHIJKLMNOPQRSTUVQXYZ"
+num    = "0123456789"
+keychars = num+alphaL+alphaU
+
+if len(sys.argv) != 3:
+  print "Usage: %s SECRET_KEY PLAINTEXT"%(sys.argv[0])
+  sys.exit()
+
+key = sys.argv[1]
+if not key.isalnum():
+  print "Your key is invalid, it may only be alphanumeric characters"
+  sys.exit()
+
+#plaintext = sys.argv[2]
+key = "T0pS3cre7key"
+plaintext = "Bot kmws mikferuigmzf rmfrxrwqe abs perudsf! Nvm kda ut ab8bv_w4ue0_ab8v_DDU"
 ciphertext = ""
 for i in range(len(plaintext)):
   rotate_amount = keychars.index(key[i%len(key)])
@@ -63,14 +79,11 @@ for i in range(len(plaintext)):
   else:
     enc_char = ord(plaintext[i])
   ciphertext = ciphertext + chr(enc_char)
-```
 
-Now input ciphertext replace for plaintext: "Usage: D:\Downloads\encrypt.py SECRET_KEY CIPHERTEXT"
-
+print "Decryption complete, DEC(%s,%s) = %s"%(plaintext,key,ciphertext)
 ```
-[...]You hawe successfully decrypwed the message! The key is th4ts_w0rs3_th4n_DES
 ```
-
+zorro@Linux:~/Desktop/CTF/crypto$ $ python ./decrypt.py 
+Decryption complete, DEC(Bot kmws mikferuigmzf rmfrxrwqe abs perudsf! Nvm kda ut ab8bv_w4ue0_ab8v_DDU,T0pS3cre7key) = You hawe successfully decrypwed the message! The key is th4ts_w0rs3_th4n_DES
+```
 **Answer:** th4ts_w0rs3_th4n_DES
-
-## Other write-ups and resources
